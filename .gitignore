@@ -58,9 +58,14 @@ results/
 *.xlsx
 *.db
 *.sqlite
+*.MD
+*.md
 
 # API keys / secrets
 secrets.json
 credentials.json
 
 claude.md
+File_Handling.MD
+notes.MD
+UT2.MD
