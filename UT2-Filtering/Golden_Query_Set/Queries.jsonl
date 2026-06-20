@@ -1,0 +1,396 @@
+# This is the golden set of queries, the truths, the expected json template population and the expected results.
+# This is the set of queries that will be used to validate the correctness of the filtering implementation.
+# The queries are in JSONL format, where each line is a separate JSON object representing a query.
+
+
+{ "id": "Q01",
+  "text": "I have just bought a Fanuc robot for a robotic drilling cell. Show me apps for this case.",
+  "class": "trap",
+  "gold_json": {
+    "Semantic_Payload": {
+      "Query": "I have just bought a Fanuc robot for a robotic drilling cell. Show me apps for this case.",
+      "Capabilities": ["Robotic Drilling"]
+    },
+    "Hardware_Constraints": {
+      "Required_Assets": ["FANUC CRX-10iA", "FANUC M-2000iA", "FANUC M-10iD/12", "FANUC M-710iC/70"],
+      "Required_Asset_Class": ["6-Axis Industrial Robot", "Drilling Spindle"]
+    }
+  },
+  "expected_ids": ["Drill_001", "Drill_002", "Drill_003", "Drill_004", "Drill_005", "Drill_008", "Drill_009", "app_aerodrill_pro", "app_atomic_bore", "app_comp_master", "app_heavymetal_driller", "app_legacy_bore", "app_legacy_bridge", "app_omni_drill_pro", "app_precision_stack_5000", "app_roughcut_stacker", "app_skydrill_basic"],
+  "forbidden_ids": []
+}
+{ "id": "Q02",
+  "text" : "Show me apps for surface treatment that have been environmentally certified.",
+  "class": "trap",
+  "gold_json": {
+    "Semantic_Payload": {
+      "Query": "Show me apps for surface treatment that have been environmentally certified.",
+      "Capabilities": ["Surface Treatment"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications": ["ISO 14001: Environmental Management"]
+    }
+  },
+  "expected_ids" : [],
+  "forbidden_ids" : []
+}
+{
+  "id" : "Q03",
+  "text" : "Show me apps that are ISO9001 certified",
+  "class" : "control",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "Show me apps that are ISO9001 certified",
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["ISO 9001:2015 Quality Management"]
+    }
+  },
+  "expected_ids":[],
+  "forbidden_ids":[]
+} 
+{
+  "id" : "Q04",
+  "text" : "I need a drilling app certified for the aerospace industry.",
+  "class" : "trap",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "I need a drilling app certified for the aerospace industry.",
+      "Capabilities": ["Drilling"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["AS9100 Rev D: Aerospace Quality System"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id" : "Q05",
+  "text" : "Show me apps ceritified for the nuclear supply chain.",
+  "class" : "trap",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "Show me apps ceritified for the nuclear supply chain.",
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["ISO 19443: Nuclear Supply Chain"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id" : "Q06",
+  "text" : "I need a quality management certified app for robotic drilling.",
+  "class" : "trap",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "I need a quality management certified app for robotic drilling.",
+      "Capabilities": ["Robotic Drilling"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["ISO 9001:2015 Quality Management"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q07",
+  "text": "Can you show me apps that are cerified to ISO 9001 and ISO 19443?",
+  "class": "trap",
+  "gold_json": {
+    "Semantic_Payload": {
+      "Query": "Can you show me apps that are cerified to ISO 9001 and ISO 19443?",
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["ISO 9001:2015 Quality Management", "ISO 19443: Nuclear Supply Chain"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q08",
+  "text": "I need apps that are capable of drilling aerospace grade titanium and are certified for the aerospace industry",
+  "class": "trap",
+  "gold_json": {
+    "Semantic_Payload": {
+      "Query": "I need apps that are capable of drilling aerospace grade titanium and are certified for the aerospace industry.",
+      "Capabilities": ["Drilling"]
+    },
+    "Hardware_Constraints": {
+      "Required_Materials" : ["Titanium Ti-6Al-4V"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["AS9100 Rev D: Aerospace Quality System"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+} 
+{
+  "id": "Q09",
+  "text": "I want an app that I can use for welding and is certified for nuclear and aerospace applications.",
+  "class" : "compound",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "I want an app that I can use for welding and is certified for nuclear and aerospace applications.",
+      "Capabilities": ["Welding"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["ISO 19443: Nuclear Supply Chain", "AS9100 Rev D: Aerospace Quality System"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q10",
+  "text": "Multi-Material Stack Drilling app with IEC 6244443 certification.",
+  "class" : "trap",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "Multi-Material Stack Drilling app with IEC 6244443 certification.",
+      "Capabilities": ["Drilling", "Multi-Material Stack Drilling"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["IEC 62443-4-1 Secure Product Development"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q11",
+  "text" : "I want a robotic drilling app that is certified for aerospace or nuclear",
+  "class" : "disjunction",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "I want a robotic drilling app that is certified for aerospace or nuclear",
+      "Capabilities": ["Robotic Drilling"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["AS9100 Rev D: Aerospace Quality System", "ISO 19443: Nuclear Supply Chain"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{ 
+  "id": "Q12",
+  "text" : "AS9100 apps developed by verified developers",
+  "class" : "fringe",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "AS9100 apps developed by verified developers",
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["AS9100 Rev D: Aerospace Quality System"]
+    },
+    "Other_Constraints": {
+      "Developer_Constraints" : {
+        "Verified_Developer" : true
+      }
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q13",
+  "text" : "Can you show me drilling apps not certified.",
+  "class" : "negation",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "Can you show me drilling apps not certified.",
+      "Capabilities": ["Drilling"]
+    },
+    "Compliance_Constraints": {
+      "Excluded_Certifications" : [
+                            "IEC 62443-4-1 Secure Product Development",
+                            "ISO 13849-1 Safety of Machinery Control Systems",
+                            "IEC 61508 Functional Safety (E/E/PE Systems)",
+                            "CE Marking (EU Conformity)",
+                            "GDPR Data Processing Compliance",
+                            "UL 508A Industrial Control Panels",
+                            "ISO/IEC 42001 AI Management System",
+                            "ISO/IEC 25010 Software Product Quality",
+                            "IEC 62443-3-3 System Security Requirements",
+                            "ISO/IEC 27001: Information Security Management",
+                            "IATF 16949 Automotive Quality Management",
+                            "ISO 19443: Nuclear Supply Chain",
+                            "SOC 2 Type II",
+                            "ISO 10218-1 Robots and Robotic Devices",
+                            "ISO 9001:2015 Quality Management",
+                            "ISO 14001: Environmental Management",
+                            "AS9100 Rev D: Aerospace Quality System"
+                        ]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q14",
+  "text" : "I need a drilling app that is certified for aerospace but not for nuclear.",
+  "class" : "exclusion",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "I need a drilling app that is certified for aerospace but not for nuclear.",
+      "Capabilities": ["Drilling"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : ["AS9100 Rev D: Aerospace Quality System"],
+      "Excluded_Certifications" : ["ISO 19443: Nuclear Supply Chain"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q15",
+  "text" : "I need a robotic drilling app - I don't care about certifications.",
+  "class" : "compound_null",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "I need a robotic drilling app - I don't care about certifications.",
+      "Capabilities": ["Robotic Drilling"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q16",
+  "text" : "I need a robotic drilling app, but exclude all certified apps.",
+  "class" : "exclusion",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "I need a robotic drilling app, but exclude all certified apps.",
+      "Capabilities": ["Robotic Drilling"]
+    },
+    "Compliance_Constraints": {
+      "Excluded_Certifications" : [
+                            "IEC 62443-4-1 Secure Product Development",
+                            "ISO 13849-1 Safety of Machinery Control Systems",
+                            "IEC 61508 Functional Safety (E/E/PE Systems)",
+                            "CE Marking (EU Conformity)",
+                            "GDPR Data Processing Compliance",
+                            "UL 508A Industrial Control Panels",
+                            "ISO/IEC 42001 AI Management System",
+                            "ISO/IEC 25010 Software Product Quality",
+                            "IEC 62443-3-3 System Security Requirements",
+                            "ISO/IEC 27001: Information Security Management",
+                            "IATF 16949 Automotive Quality Management",
+                            "ISO 19443: Nuclear Supply Chain",
+                            "SOC 2 Type II",
+                            "ISO 10218-1 Robots and Robotic Devices",
+                            "ISO 9001:2015 Quality Management",
+                            "ISO 14001: Environmental Management",
+                            "AS9100 Rev D: Aerospace Quality System"
+                        ]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q17",
+  "text" : "Can you show me certified apps for inpsection or quality control.",
+  "class" : "compound_disjunction",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "Can you show me certified apps for inpsection or quality control.",
+      "Capabilities": ["Inspection", "Quality Control"]
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : [
+                            "IEC 62443-4-1 Secure Product Development",
+                            "ISO 13849-1 Safety of Machinery Control Systems",
+                            "IEC 61508 Functional Safety (E/E/PE Systems)",
+                            "CE Marking (EU Conformity)",
+                            "GDPR Data Processing Compliance",
+                            "UL 508A Industrial Control Panels",
+                            "ISO/IEC 42001 AI Management System",
+                            "ISO/IEC 25010 Software Product Quality",
+                            "IEC 62443-3-3 System Security Requirements",
+                            "ISO/IEC 27001: Information Security Management",
+                            "IATF 16949 Automotive Quality Management",
+                            "ISO 19443: Nuclear Supply Chain",
+                            "SOC 2 Type II",
+                            "ISO 10218-1 Robots and Robotic Devices",
+                            "ISO 9001:2015 Quality Management",
+                            "ISO 14001: Environmental Management",
+                            "AS9100 Rev D: Aerospace Quality System"
+                        ]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q18",
+  "text" : "I need an app to apply a specialist coating to a part, I need it to be certified aswell",
+  "class" : "compound",
+  "gold_json" : { 
+    "Semantic_Payload": {
+      "Query": "I need an app to apply a specialist coating to a part, I need it to be certified aswell",
+      "Capabilities": ["Surface Treatment", "Painting", "Coating"],
+    },
+    "Compliance_Constraints": {
+      "Required_Certifications" : [
+                            "IEC 62443-4-1 Secure Product Development",
+                            "ISO 13849-1 Safety of Machinery Control Systems",
+                            "IEC 61508 Functional Safety (E/E/PE Systems)",
+                            "CE Marking (EU Conformity)",
+                            "GDPR Data Processing Compliance",
+                            "UL 508A Industrial Control Panels",
+                            "ISO/IEC 42001 AI Management System",
+                            "ISO/IEC 25010 Software Product Quality",
+                            "IEC 62443-3-3 System Security Requirements",
+                            "ISO/IEC 27001: Information Security Management",
+                            "IATF 16949 Automotive Quality Management",
+                            "ISO 19443: Nuclear Supply Chain",
+                            "SOC 2 Type II",
+                            "ISO 10218-1 Robots and Robotic Devices",
+                            "ISO 9001:2015 Quality Management",
+                            "ISO 14001: Environmental Management",
+                            "AS9100 Rev D: Aerospace Quality System"
+                        ]
+    },
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q19",
+  "text" : "Can you show me apps that will work on both my Fanuc M-10iD/12 and my KUKA KR 16-2 robotic arms",
+  "class" : "compound",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "Can you show me apps that will work on both my Fanuc M-10iD/12 and my KUKA KR 16-2 robotic arms",
+    },
+    "Hardware_Constraints": {
+      "Required_Assets" : ["FANUC M-10iD/12", "KUKA KR 16-2"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
+{
+  "id": "Q20",
+  "text" : "Can you show me all the apps that do not have permission to write process parameters.",
+  "class" : "negation",
+  "gold_json" : {
+    "Semantic_Payload": {
+      "Query": "Can you show me all the apps that do not have permission to write process parameters.",
+    },
+    "Compliance_Constraints": {
+      "Excluded_Permissions" : ["Write Process Parameters"]
+    }
+  },
+  "expected_ids": [],
+  "forbidden_ids": []
+}
