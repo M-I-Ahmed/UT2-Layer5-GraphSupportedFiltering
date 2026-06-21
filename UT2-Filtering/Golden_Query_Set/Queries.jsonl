@@ -16,8 +16,8 @@
       "Required_Asset_Class": ["6-Axis Industrial Robot", "Drilling Spindle"]
     }
   },
-  "expected_ids": ["Drill_001", "Drill_002", "Drill_003", "Drill_004", "Drill_005", "Drill_008", "Drill_009", "app_aerodrill_pro", "app_atomic_bore", "app_comp_master", "app_heavymetal_driller", "app_legacy_bore", "app_legacy_bridge", "app_omni_drill_pro", "app_precision_stack_5000", "app_roughcut_stacker", "app_skydrill_basic"],
-  "forbidden_ids": []
+  "expected_ids": ["Drill_001", "Drill_005", "Drill_004", "Drill_009"],
+  "forbidden_ids": ["app_omni_drill_pro", "app_heavymetal_driller", "app_legacy_bore", "app_aerodrill_pro", "app_atomic_bore", "app_skydrill_basic", "app_comp_master"]
 }
 { "id": "Q02",
   "text" : "Show me apps for surface treatment that have been environmentally certified.",
@@ -31,8 +31,8 @@
       "Required_Certifications": ["ISO 14001: Environmental Management"]
     }
   },
-  "expected_ids" : [],
-  "forbidden_ids" : []
+  "expected_ids" : ["ST_010"],
+  "forbidden_ids" : ["ST_001", "ST_005", "ST_011", "ST_002", "ST_003", "ST_008", "ST_007"]
 }
 {
   "id" : "Q03",
@@ -46,8 +46,8 @@
       "Required_Certifications" : ["ISO 9001:2015 Quality Management"]
     }
   },
-  "expected_ids":[],
-  "forbidden_ids":[]
+  "expected_ids":["app_titangrip_os", "Drill_002", "Drill_007",  "ST_008", "Drill_006", "Drill_008", "app_skydrill_basic", "app_roboweld", "Drill_003", "W_002", "ST_001",  "ST_007" ],
+  "forbidden_ids":["ST_010", "app_ecotune_green", "app_atomic_bore", "W_005", "ST_003", "Drill_005", "Drill_001", "W_003", "ST_002", "app_comp_master", "W_001", "app_precision_stack_5000", "app_omni_drill_pro", "W_006", "app_visionguard_ai", "Drill_009", "app_pathwizard_ai", "app_iron_monitor", "app_aerodrill_pro", "app_heavymetal_driller", "ST_005"] 
 } 
 {
   "id" : "Q04",
@@ -62,8 +62,8 @@
       "Required_Certifications" : ["AS9100 Rev D: Aerospace Quality System"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": [ "app_precision_stack_5000", "app_omni_drill_pro", "app_comp_master", "app_aerodrill_pro" ],
+  "forbidden_ids": ["app_legacy_bridge", "Drill_008", "Drill_002", "Drill_003", "app_roughcut_stacker", "Drill_004", "app_atomic_bore", "app_legacy_bore", "Drill_009", "app_heavymetal_driller", "app_skydrill_basic",  "Drill_001",  "Drill_005", "app_titanium_fake"]
 }
 {
   "id" : "Q05",
@@ -77,8 +77,8 @@
       "Required_Certifications" : ["ISO 19443: Nuclear Supply Chain"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["app_atomic_bore", "ST_001"],
+  "forbidden_ids": ["app_omni_drill_pro"]
 }
 {
   "id" : "Q06",
@@ -93,8 +93,8 @@
       "Required_Certifications" : ["ISO 9001:2015 Quality Management"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["app_skydrill_basic"],
+  "forbidden_ids": ["Drill_005", "app_aerodrill_pro", "app_comp_master", "app_legacy_bore", "Drill_004", "app_omni_drill_pro", "Drill_001", "app_heavymetal_driller", "Drill_009", "app_atomic_bore"]
 }
 {
   "id": "Q07",
@@ -108,8 +108,8 @@
       "Required_Certifications" : ["ISO 9001:2015 Quality Management", "ISO 19443: Nuclear Supply Chain"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["ST_001"],
+  "forbidden_ids": ["ST_007", "ST_008", "app_titangrip_os", "app_roboweld", "Drill_002", "app_aerodrill_pro", "Drill_003", "W_002", "app_skydrill_basic", "Drill_006", "Drill_007", "Drill_008"]
 }
 {
   "id": "Q08",
@@ -128,7 +128,7 @@
     }
   },
   "expected_ids": [],
-  "forbidden_ids": []
+  "forbidden_ids": ["app_titanium_fake"]
 } 
 {
   "id": "Q09",
@@ -144,7 +144,7 @@
     }
   },
   "expected_ids": [],
-  "forbidden_ids": []
+  "forbidden_ids": ["W_005", "app_roboweld", "W_002", "W_001", "W_003", "W_006"]
 }
 {
   "id": "Q10",
@@ -159,8 +159,8 @@
       "Required_Certifications" : ["IEC 62443-4-1 Secure Product Development"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["app_atomic_bore"],
+  "forbidden_ids": ["app_roughcut_stacker", "app_omni_drill_pro", "Drill_005", "app_precision_stack_5000", "Drill_004"]
 }
 {
   "id": "Q11",
@@ -175,8 +175,8 @@
       "Required_Certifications" : ["AS9100 Rev D: Aerospace Quality System", "ISO 19443: Nuclear Supply Chain"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["app_aerodrill_pro", "app_comp_master", "app_omni_drill_pro", "app_atomic_bore"],
+  "forbidden_ids": ["Drill_001", "Drill_005"]
 }
 { 
   "id": "Q12",
@@ -191,11 +191,11 @@
     },
     "Other_Constraints": {
       "Developer_Constraints" : {
-        "Verified_Developer" : true
+        "Verification_status" : ["TRUSTED_PARTNER", "VERIFIED", "VERIFIED_GOV"]
       }
     }
   },
-  "expected_ids": [],
+  "expected_ids": ["app_precision_stack_5000", "app_aerodrill_pro", "ST_002", "Drill_006", "app_comp_master", "Drill_005", "Drill_001", "app_omni_drill_pro", "W_006", "Drill_007", "W_005", "ST_001", "W_003", "W_001", "ST_003"],
   "forbidden_ids": []
 }
 {
@@ -229,8 +229,8 @@
                         ]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["app_legacy_bridge", "app_roughcut_stacker", "Drill_004", "Drill_005", "Drill_001", "app_legacy_bore", "app_heavymetal_driller"],
+  "forbidden_ids": ["Drill_008", "app_omni_drill_pro", "app_atomic_bore", "app_precision_stack_5000", "app_comp_master", "app_skydrill_basic", "app_aerodrill_pro", "Drill_009", "Drill_002", "Drill_003"]
 }
 {
   "id": "Q14",
@@ -246,8 +246,8 @@
       "Excluded_Certifications" : ["ISO 19443: Nuclear Supply Chain"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["app_omni_drill_pro", "Drill_005", "app_precision_stack_5000", "app_comp_master", "app_aerodrill_pro"],
+  "forbidden_ids": ["app_atomic_bore", "Drill_001"]
 }
 {
   "id": "Q15",
@@ -259,7 +259,7 @@
       "Capabilities": ["Robotic Drilling"]
     }
   },
-  "expected_ids": [],
+  "expected_ids": ["app_aerodrill_pro", "Drill_001", "app_skydrill_basic", "Drill_004", "app_legacy_bore", "app_heavymetal_driller", "app_comp_master", "Drill_009", "app_atomic_bore", "Drill_005", "app_omni_drill_pro"],
   "forbidden_ids": []
 }
 {
@@ -293,8 +293,8 @@
                         ]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["Drill_004", "Drill_005", "app_legacy_bore", "Drill_001", "app_heavymetal_driller"],
+  "forbidden_ids": ["app_aerodrill_pro", "app_skydrill_basic", "Drill_009", "app_comp_master", "app_atomic_bore", "app_omni_drill_pro"]
 }
 {
   "id": "Q17",
@@ -327,7 +327,7 @@
                         ]
     }
   },
-  "expected_ids": [],
+  "expected_ids": ["W_006", "Drill_007", "Drill_006", "app_visionguard_ai" ],
   "forbidden_ids": []
 }
 {
@@ -361,8 +361,8 @@
                         ]
     },
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["ST_001", "ST_002", "ST_003"],
+  "forbidden_ids": ["ST_005", "ST_011", ]
 }
 {
   "id": "Q19",
@@ -376,8 +376,8 @@
       "Required_Assets" : ["FANUC M-10iD/12", "KUKA KR 16-2"]
     }
   },
-  "expected_ids": [],
-  "forbidden_ids": []
+  "expected_ids": ["Drill_004", "Drill_005", "Drill_009", "ST_001", "ST_002", "ST_003", "ST_005", "ST_007", "ST_008", "W_001", "W_005", "app_ecotune_green", "app_pathwizard_ai", "app_quantum_adapter", ],
+  "forbidden_ids": ["app_speed_demon", "app_legacy_bore", "Drill_001"]
 }
 {
   "id": "Q20",
@@ -392,5 +392,5 @@
     }
   },
   "expected_ids": [],
-  "forbidden_ids": []
+  "forbidden_ids": ["app_quantum_adapter", "ST_010", "app_roughcut_stacker", "app_comp_master", "Drill_005", "app_omni_drill_pro", "app_titangrip_os", "W_001", "W_002", "ST_003", "ST_001", "ST_005", "ST_007", "Drill_008", "app_atomic_bore", "app_legacy_bore", "W_003", "ST_008", "W_005", "app_aerodrill_pro", "Drill_001", "app_precision_stack_5000", "Drill_002", "app_roboweld", "app_legacy_bridge", "app_skydrill_basic", "Drill_004", "app_titanium_fake", "app_pathwizard_ai", "app_ecotune_green", "Drill_003", "ST_002", "app_speed_demon", "app_heavymetal_driller"]
 }
